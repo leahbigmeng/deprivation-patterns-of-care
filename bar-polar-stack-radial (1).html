@@ -1,0 +1,115 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-stack-radial&version=5.4.3&code=PYBwLglsB2AEC8sDeAoWsCG0DmAbApgIIAeEAzgFzJrqxgCeI-VA5AMYZj7bABO9LADQ10AE04YqAbRYARfCF4QAbpyjQAtAEYhsOQqWrIMDQCZd-xSrUmAzBflWj6jQBYHB68c0BWFgF0aAF9hdF4MUQgAVzISciokEJoQYFwMXgSk9DJ8JXxKWCkRalpaBiZWACN0oWKxCWktHwA6AE5BWC1W5oAGDtMtXv7TZp9-217_UNLYNmA-SOhOfABlejIuAFtWFLTeWpnYJc3mPQBhdPxYAAtgE4OZjYw2AGtWDAfS_E2Qa4wyeIlQ6wABmwDYMVYOTyZBYdVgQWKWVoqEO5VOLGq-2mpXEYEkhQmY1griGJOarg6pIAHB0WlopvC5gsIEsuGsNt8dqkajjaMcMQAJYBkEAQNj4T60J6vd5S9DfX7_QGo4FgiEFFjQiD5OGHRGlZHoVWldFVXnwvEEqSuADsFKpLVtVImlJJIy0VMGrkZh2ZvEWyw5W25e3lRwwJ1YwtFEHxuHDMreeg-fIVPz-AIKJpm6shem1uvhBtoRqBpsYGKx4at0ld_TaDYAbA23R7fTN_YH2esQ3pdhbDgLWAB5MDXXKwEBpCWwtOwJNy-eKzMq-HoPOawuw4tIvk59BmvTV-e1wqmbrtWCmakO6-3lv35qmfq3nwd0pd1lB3tc_s87F4WHPRhXuedFxTcMV2VbN11BcF8y1XIdR3fU9xoDsCGwfBoFEBJijIW4AHcqDAXgonwPkzxkC5eCuW4wJAkUxQlCwYzFeMhBYMcJ14KcZ11DoWFAyVAnQREggAbiAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  angleAxis: {
+    type: 'category',
+    data: ['Deprivation-1', 'Deprivation-2', 'Deprivation-3', 'Deprivation-4', 'Deprivation-5']
+  },
+  radiusAxis: {},
+  polar: {},
+  series: [
+    {
+      type: 'bar',
+      data: [15.9, 19.0, 21.0, 22.5, 23.0],
+      coordinateSystem: 'polar',
+      name: 'Care home',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      type: 'bar',
+      data: [3.5, 4.0, 4.4, 4.8, 5.1],
+      coordinateSystem: 'polar',
+      name: 'Hospice',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      type: 'bar',
+      data: [47.4, 45.7, 43.4, 42.1, 41.4],
+      coordinateSystem: 'polar',
+      name: 'Hospital',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      type: 'bar',
+      data: [3.4, 2.9, 2.6, 2.4, 2.1],
+      coordinateSystem: 'polar',
+      name: 'Other places',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      type: 'bar',
+      data: [29.9, 28.4, 28.6, 28.2, 28.5],
+      coordinateSystem: 'polar',
+      name: 'Home',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+  ],
+  legend: {
+    show: true,
+    data: ['Care home', 'Hospice', 'Hospital','Other places', 'Home']
+  }
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
